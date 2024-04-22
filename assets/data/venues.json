@@ -1,0 +1,85 @@
+[
+  {
+    "name": "Toronto FC",
+    "address": "170 Princes' Blvd, Toronto, ON M6K 3C3",
+    "longitude": "-79.3962",
+    "latitude": "43.6332",
+    "description": "Major League Soccer team",
+    "id": "1",
+    "image": "https://media.blogto.com/articles/1565-201656-tfc.jpg?w=1200&cmd=resize_then_crop&height=630&quality=70"
+  },
+  {
+    "name": "Toronto Raptors",
+    "address": "40 Bay St, Toronto, ON M5J 2X2",
+    "longitude": "-79.3791",
+    "latitude": "43.6435",
+    "description": "National Basketball Association team",
+    "id": "2",
+    "image": "https://www.scotiabankarena.com/assets/img/MLSE_ACCWALK_Inter-Slide-cc7349171f.jpg"
+  },
+  {
+    "name": "Toronto Blue Jays",
+    "address": "1 Blue Jays Way, Toronto, ON M5V 1J1",
+    "longitude": "-79.3894",
+    "latitude": "43.6414",
+    "description": "Major League Baseball team",
+    "id": "3",
+    "image": "https://cdn.skyrisecities.com/sites/default/files/images/projects/48832/48832-146921.jpg"
+  },
+  
+  {
+    "name": "Toronto Marlies",
+    "address": "45 Manitoba Dr, Toronto, ON M6K 3C3",
+    "longitude": "-79.4895",
+    "latitude": "43.6331",
+    "description": "American Hockey League team",
+    "id": "4",
+    "image": "https://www.coca-colacoliseum.com/assets/img/Ricoh_Ice-Thumb-df0b91b1f6.jpg"
+  },
+
+  {
+    "name": "Scarborough Soccer Association",
+    "address": "45 Fairfax Crescent, Scarborough, ON",
+    "longitude": "-79.258368",
+    "latitude": "43.749451",
+    "description": "Youth soccer club offering recreational and competitive programs.",
+    "id": "5",
+      "image":"https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg3hYae-1Er9B0Xsi9SZnrUNBXI6O8WV7iyQ3dLC_hzZ05ivmKxl-DdnXu9mYQ2mID3XV9YOuus-dNbuQgvKSTdIO75jAbqc59NAO3yEZcR6-Vpxd0EwWGsxDErkhUuPzw_u1RBgogmDHuj/s1600/IMG_3666.JPG"
+  },
+    {
+      "name": "Scarborough Sharks Basketball Club",
+    "address": "55 Corporation Drive, Scarborough, ON",
+    "longitude": "-79.232202",
+    "latitude": "43.785453",
+    "description": "Basketball club for all ages and skill levels.",
+      "id": "6",
+      "image":"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSuDbJEvQTFnjAmHtd9sZ0E4el2Id2_EaGhAFzNruldbA&s"
+    },
+    {
+      "name": "Scarborough Tennis Federation",
+    "address": "150 Borough Drive, Scarborough, ON",
+    "longitude": "-79.257355",
+    "latitude": "43.775488",
+    "description": "Promoting and organizing tennis in Scarborough.",
+      "id": "7",
+      "image":"https://s3-media0.fl.yelpcdn.com/bphoto/1UeyLFP1oqwEfS7y_nTH9w/1000s.jpg"
+    },
+    {
+      "name": "Scarborough Cricket Association",
+      "address": "100 Melford Drive, Scarborough, ON",
+      "longitude": "-79.267524",
+      "latitude": "43.780699",
+      "description": "Organizing cricket leagues and tournaments.",
+      "id": "8",
+      "image":"https://what2do-where2go.co.uk/images/f2c/p6/f872/bea9ed8d2af62fe31752d0f7b1a6fe10_w1600_h600_cp.jpg"
+    },
+    {
+      "name": "Scarborough Gymnastics Academy",
+      "address": "3331 Sheppard Avenue East, Scarborough, ON",
+      "longitude": "-79.288872",
+      "latitude": "43.781813",
+      "description": "Gymnastics training for all ages and abilities.",
+      "id": "9",
+      "image":"https://media-cdn.tripadvisor.com/media/photo-s/04/7a/a2/45/scarborough-cricket-club.jpg"
+    }
+]
