@@ -107,9 +107,11 @@ const SportsClubFinderMap = () => {
     }
   }, [location]);
 
+  const key = process.env.EXPO_PUBLIC_API
+
   const fetchClubsNearby = async (latitude: any, longitude: any) => {
     const radius = 2000; // 2 km radius
-    const apiKey = 'AIzaSyD8jYogFHOHhoDzfScsl9-_l4UqFNvgtQ0';
+    const apiKey = key;
     const url = `https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=${latitude},${longitude}&radius=${radius}&type=gym&key=${apiKey}`;
 
     try {

@@ -10,9 +10,13 @@ import * as SecureStore from "expo-secure-store";
 import React from "react";
 import { GestureHandlerRootView } from "react-native-gesture-handler";
 
+// import * as dotenv from 'dotenv';
+// dotenv.config();
+
+let subdomain = process.env.EXPO_PUBLIC_SUBDOMAIN;
 
 const nhost = new NhostClient({
-  subdomain: 'lbgqscuvjpwtqohrllte',
+  subdomain: subdomain,
   region: 'us-east-1',
   clientStorageType: 'expo-secure-storage',
   clientStorage: SecureStore,

@@ -4,6 +4,6 @@
 # 3) Run the following command in root of the repository:
 npm install --legacy-peer-deps
 # 4) Then run:
-npm start
+npx expo start
 # 5) Scan the QR Code with your phone's camera app (iOS). Scan it from the Expo app if you're using an Android phone
 # 6) Wait for the app to launch on your phone.
