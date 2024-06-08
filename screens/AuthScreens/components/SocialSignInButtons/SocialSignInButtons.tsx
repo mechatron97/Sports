@@ -8,7 +8,7 @@ const SocialSignInButtons = () => {
   };
 
   const onSignInGoogle = () => {
-    console.warn('onSignInGoogle');
+   console.warn('onSignInGoogle');
   };
 
   const onSignInApple = () => {

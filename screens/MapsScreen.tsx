@@ -81,7 +81,7 @@
 
 import React, { useState, useEffect } from 'react';
 import { View, Text } from 'react-native';
-import MapView, { Marker, PROVIDER_GOOGLE } from 'react-native-maps';
+import MapView, { Marker, PROVIDER_DEFAULT } from 'react-native-maps';
 import * as Location from 'expo-location';
 
 const SportsClubFinderMap = () => {
@@ -129,7 +129,7 @@ const SportsClubFinderMap = () => {
     <View style={{ flex: 1 }}>
       {location && (
         <MapView
-        provider={PROVIDER_GOOGLE}
+        provider={PROVIDER_DEFAULT}
           style={{ flex: 1 }}
           initialRegion={{
             latitude: location.latitude,

@@ -1,4 +1,4 @@
-import { View, StyleSheet } from "react-native";
+import { View, StyleSheet, Dimensions, Text, Image } from "react-native";
 import React, { useState } from "react";
 import CustomButton from "../components/CustomButton";
 import { MaterialIcons } from '@expo/vector-icons';
@@ -6,11 +6,12 @@ import { useNavigation } from "@react-navigation/native";
 import { StatusBar } from "expo-status-bar";
 import { Directions, Gesture, GestureDetector } from "react-native-gesture-handler";
 import Animated, { FadeIn, FadeOut, SlideInRight, SlideOutLeft } from "react-native-reanimated";
+import Carousel from 'react-native-reanimated-carousel';
 
 const onboardingSteps = [
     {
         icon: 'sports-football',
-        title: 'Welcome to PlayBook',
+        title: 'Welcome to SportsBuddy',
         description: 'Play your favorite sports',
     },
     {
@@ -30,30 +31,79 @@ const onboardingSteps = [
 }
 ];
 
+// export default function OnboardingScreen(){
+
+//     const [screenIndex, setScreenIndex] = useState(0);
+
+//     const data = onboardingSteps[screenIndex];
+
+//     const onContinue = () => {
+//         const isLast = screenIndex === onboardingSteps.length - 1;
+//         if(isLast){
+//             registration();
+//             setScreenIndex(0);
+//         } else {
+//             setScreenIndex(screenIndex + 1);
+//         }
+//     };
+
+//     const onBack = () => {
+//         const isFirst = screenIndex === 0;
+//         if(isFirst){
+//             setScreenIndex(0);
+//         } else {
+//             setScreenIndex(screenIndex - 1);
+//         }
+//     }
+
+    // const navigation = useNavigation();
+
+    // const endOnboarding = () => {
+    //     navigation.navigate("SignIn");
+    //   };
+
+    // const registration = () => {
+    //     navigation.navigate("SignUp");
+    // }
+
+//     const swipes = Gesture.Simultaneous(
+//     Gesture.Fling().direction(Directions.LEFT).onEnd(onContinue),
+//     Gesture.Fling().direction(Directions.RIGHT).onEnd(onBack)
+//     );
+
+//     return(
+//         <GestureDetector gesture={swipes}>
+//         <View style={styles.page} key={screenIndex}>
+//             <StatusBar style="auto" />
+//         <View style={styles.stepIndicatorContainer}>
+//             {onboardingSteps.map((step, index) => (
+//                 <View 
+//                 key={index}
+//                 style={[styles.stepIndicator, {backgroundColor: index === screenIndex ? '#FFBD59' : 'white'}]} 
+//                 />
+//             ))}
+//         </View>
+//         <Animated.Image entering={SlideInRight} source={require('../assets/images/logo.png')} style={styles.image} />
+//         <Animated.View entering={FadeIn} exiting={FadeOut}>
+//         <MaterialIcons name={data.icon} size={60} color="black" />
+//         </Animated.View>
+//         <Animated.Text entering={SlideInRight} exiting={SlideOutLeft} style={styles.title}>{data.title}</Animated.Text>
+//         <Animated.Text entering={SlideInRight.delay(100)} style={styles.description}>{data.description}</Animated.Text>
+//             <View style={styles.footer}>
+//                 {/* <CustomButton onPress={onContinue} text={"Continue"} />
+//                 <CustomButton onPress={endOnboarding} text={"Skip To Sign In"} /> */}
+//                 <CustomButton onPress={endOnboarding} text={"Continue"} />
+//             </View>
+//         </View>
+//         </GestureDetector>
+//     );
+// }
+
 export default function OnboardingScreen(){
 
     const [screenIndex, setScreenIndex] = useState(0);
 
-    const data = onboardingSteps[screenIndex];
-
-    const onContinue = () => {
-        const isLast = screenIndex === onboardingSteps.length - 1;
-        if(isLast){
-            registration();
-            setScreenIndex(0);
-        } else {
-            setScreenIndex(screenIndex + 1);
-        }
-    };
-
-    const onBack = () => {
-        const isFirst = screenIndex === 0;
-        if(isFirst){
-            setScreenIndex(0);
-        } else {
-            setScreenIndex(screenIndex - 1);
-        }
-    }
+    const data = onboardingSteps;
 
     const navigation = useNavigation();
 
@@ -65,37 +115,46 @@ export default function OnboardingScreen(){
         navigation.navigate("SignUp");
     }
 
-    const swipes = Gesture.Simultaneous(
-    Gesture.Fling().direction(Directions.LEFT).onEnd(onContinue),
-    Gesture.Fling().direction(Directions.RIGHT).onEnd(onBack)
-    );
+    const width = Dimensions.get('window').width;
 
-    return(
-        <GestureDetector gesture={swipes}>
-        <View style={styles.page} key={screenIndex}>
-            <StatusBar style="auto" />
-        <View style={styles.stepIndicatorContainer}>
-            {onboardingSteps.map((step, index) => (
+    const height = Dimensions.get('window').height;
+
+    return (
+        <View style={{ flex: 1 }}>
+            <Carousel
+                loop
+                width={width}
+                height={height}
+                autoPlay={true}
+                data={onboardingSteps}
+                scrollAnimationDuration={1000}
+                onSnapToItem={(screenIndex) => setScreenIndex(screenIndex)}
+                renderItem={({ item: data }) => (
+         <View style={styles.page}>
+             <StatusBar style="auto" />
+         <View style={styles.stepIndicatorContainer}>
+             {onboardingSteps.map((_step, index) => (
                 <View 
                 key={index}
-                style={[styles.stepIndicator, {backgroundColor: index === screenIndex ? '#FFBD59' : 'white'}]} 
                 />
             ))}
         </View>
-        <Animated.Image entering={SlideInRight} source={require('../assets/images/logo.png')} style={styles.image} />
-        <Animated.View entering={FadeIn} exiting={FadeOut}>
+        <Image source={require('../assets/images/logo.png')} style={styles.image} />
+        <View>
         <MaterialIcons name={data.icon} size={60} color="black" />
-        </Animated.View>
-        <Animated.Text entering={SlideInRight} exiting={SlideOutLeft} style={styles.title}>{data.title}</Animated.Text>
-        <Animated.Text entering={SlideInRight.delay(100)} style={styles.description}>{data.description}</Animated.Text>
+        </View>
+        <Text style={styles.title}>{data.title}</Text>
+        <Text style={styles.description}>{data.description}</Text>
             <View style={styles.footer}>
-                <CustomButton onPress={onContinue} text={"Continue"} />
-                <CustomButton onPress={endOnboarding} text={"Skip To Sign In"} />
+                <CustomButton onPress={endOnboarding} text={"Continue"} />
             </View>
         </View>
-        </GestureDetector>
+                )}
+            />
+        </View>
     );
 }
+
 
 const styles = StyleSheet.create({
 
