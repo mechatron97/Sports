@@ -25,51 +25,12 @@ const EMAIL_REGEX =
   /^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
 
 function SignInScreen(){
+  
   const navigation = useNavigation();
 
   const { control, handleSubmit } = useForm();
 
   const { signInEmailPassword, isLoading } = useSignInEmailPassword();
-
-  const [userInfo, setUserInfo] = React.useState(null);
-
-  const [ request, response, promptAsync ] = Google.useAuthRequest({
-    iosClientId: 
-    "801121607878-12dl2mposkdnhl6uqt0scr3u3hiva7ol.apps.googleusercontent.com",
-    useProxy: true
-  });
-
-  React.useEffect(() => {
-    handleSignInWithGoogle(),
-    [response]
-  })
-
-  async function handleSignInWithGoogle() {
-    const user = await AsyncStorage.getItem("@user");
-    if(!user){
-      if(response?.type === "success"){
-        await getUserInfo(response.authentication.accessToken);
-      }
-    } else {
-      setUserInfo(JSON.parse(user));
-    }
-  }
-
-  const getUserInfo = async (token: string) => {
-    if(!token) return;
-    try {
-      const response = await fetch("https://www.googleapis.com/userinfo/v2/me", 
-      {
-        headers: { Authorization: `Bearer ${token}` },
-      });
-      const user = await response.json();
-      await AsyncStorage.setItem("@user", JSON.stringify(user));
-      setUserInfo(user);
-    } catch (error) {
-      console.log("Error getting user info:", error);
-    }
-    
-  }
 
   const onSignInPressed = async (data: { email: any; password: any; }) => {
     if (isLoading) {
@@ -139,15 +100,7 @@ function SignInScreen(){
           type="TERTIARY"
         />
 
-        <Text>{JSON.stringify(userInfo)}</Text>
-        <CustomButton 
-          text="Sign in with Google" 
-          onPress={() => promptAsync()} 
-          bgColor="#FAE9EA"
-          fgColor="#DD4D44"
-        />
-
-        {/* <SocialSignInButtons /> */}
+        <SocialSignInButtons />
 
         <CustomButton
           text="Don't have an account? Create one"
