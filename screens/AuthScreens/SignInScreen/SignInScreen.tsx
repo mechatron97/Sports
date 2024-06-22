@@ -16,8 +16,6 @@ import { useSignInEmailPassword } from "@nhost/react";
 
 
 import * as WebBrowser from "expo-web-browser";
-import * as Google from "expo-auth-session/providers/google";
-import AsyncStorage from "@react-native-async-storage/async-storage";
 
 WebBrowser.maybeCompleteAuthSession();
 
@@ -83,8 +81,8 @@ function SignInScreen(){
           rules={{
             required: "Password is required",
             minLength: {
-              value: 3,
-              message: "Password should be minimum 3 characters long",
+              value: 8,
+              message: "Password should be minimum 8 characters long",
             },
           }}
         />
